@@ -2,12 +2,19 @@
   <header>
     <h1>Header</h1>
     
-    <nav>
+    <div class="nav">
       <ul>
-        <li>検索(仮)</li> 
-        <li>Log In</li>
+        <li>
+          <a class="waves-effect waves-light btn-small">検索(仮)</a>
+        </li> 
+        <li>
+          <a class="waves-effect waves-light btn-small">LOG IN</a>
+        </li> 
+        <li>
+          <a class="waves-effect waves-light btn-small">SIGN IN</a>
+        </li>
       </ul>
-    </nav>
+    </div>
   </header>
 </template>
 
@@ -25,7 +32,7 @@ header {
     display: flex;
   }
 
-  nav {
+  .nav {
     width: 30%;
     display: flex;
     align-items: center;
