@@ -1,20 +1,19 @@
 <template>
   <main>
-    <h2>TopView</h2>
-
     <div class="cards">
       <div v-for="(n, index) in 12" key="index" class="item">
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
+              <span class="card-title">タイトルが入ります</span>
+              <p>
+                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+              </p>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
-            </div>
+            <ul class="card-action meta_data">
+              <li>作成日：00/00/00/00</li>
+              <li>作成者：作成者が入ります</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -26,6 +25,9 @@
 </script>
 
 <style scoped>
+main {
+  padding-top: 5rem;
+}
 .cards {
     display: flex;
     justify-content: space-around;
@@ -35,5 +37,10 @@
 .item {
   width: 33%;
   max-width: 350px;
+}
+
+.meta_data {
+  color: #fff;
+  font-size: 0.8rem;
 }
 </style>

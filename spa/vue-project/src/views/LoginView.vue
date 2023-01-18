@@ -1,46 +1,33 @@
 <template>
   <main>
-    <h2>LogInView</h2>
     <div class="form">
+      <div class="titele">LOG IN</div>
       <div class="row">
         <form class="col s12">
           <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-              <label for="first_name">First Name</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
-            </div>
-          </div>
-          <div class="row">
             <div class="input-field col s12">
-              <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-              <label for="disabled">Disabled</label>
+              <input id="email" type="email" class="validate">
+              <label for="email">メールアドレス</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
+              <label for="password">パスワード</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12">
-              This is an inline input field:
-              <div class="input-field inline">
-                <input id="email_inline" type="email" class="validate">
-                <label for="email_inline">Email</label>
-                <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-              </div>
-            </div>
+          <ul class="buttons">
+            <li>
+              <a class="waves-effect waves-light btn">新規作成へ</a>
+            </li>
+            <li>
+              <a class="waves-effect waves-light btn">ログイン</a>
+            </li>
+          </ul>
+          <div class="reset">
+            <p>
+              パスワードを忘れてしまった場合（仮）
+            </p>
           </div>
         </form>
       </div>
@@ -52,5 +39,41 @@
 </script>
 
 <style scoped>
+.titele {
+  text-align: center;
+  font-size: 1.5rem;
+}
 
+.form {
+  width: 30%;
+  max-width: 800px;
+  border: 0.1rem solid #9e9e9e;
+  border-radius: 2rem;
+  margin: 10rem auto 0;
+  padding: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.buttons a{
+  width: 90px;
+}
+
+.reset {
+  text-align: center;
+}
+
+.reset p{
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.reset p:hover{
+  cursor: pointer;
+  border-bottom: 0.1rem solid #9e9e9e;
+}
 </style>
