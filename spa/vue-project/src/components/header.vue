@@ -1,6 +1,10 @@
 <template>
   <header>
-    <h1>Header</h1>
+    <h1>
+      <router-link to="/">
+        Header
+      </router-link>
+    </h1>
     
     <div class="nav">
       <ul>
@@ -8,10 +12,19 @@
           <a class="waves-effect waves-light btn-small">検索(仮)</a>
         </li> 
         <li>
-          <a class="waves-effect waves-light btn-small">LOG IN</a>
+          <router-link to="/edit" class="waves - effect waves - light btn - small">
+            記事作成
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/login" class="waves - effect waves - light btn - small">
+            LOG IN
+          </router-link>
         </li> 
         <li>
-          <a class="waves-effect waves-light btn-small">SIGN IN</a>
+          <router-link to="/signup" class="waves - effect waves - light btn - small">
+            SIGN UP
+          </router-link>
         </li>
       </ul>
     </div>

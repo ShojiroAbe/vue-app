@@ -6,24 +6,33 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">タイトル</label>
+              <input v-model="edit_title" type="text" class="validate">
+              <label for="title">タイトル</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">本文</label>
+              <input v-model="edit_text" type="text" class="validate">
+              <label for="text">本文</label>
             </div>
           </div>
         </form>
       </div>
+      <!-- タイトルと本文のどちらかが空の場合はエラーを出す -->
+      <div v-if="!edit_title || !edit_text">
+        エラー：タイトル、本文を入力してください。
+      </div>
       <ul class="buttons">
         <li>
-          <a class="waves-effect waves-light btn">記事の登録</a>
+          <!-- クリック後、「この内容で記事を作成しますか」というアラート？モーダル？を出す -->
+          <div @click="upLoad" class="waves-effect waves-light btn">
+            記事の登録
+          </div>
         </li>
         <li>
-          <a class="waves-effect waves-light btn">取り消し</a>
+          <div @click="resetInput" class="waves-effect waves-light btn">
+            取り消し
+          </div>
         </li>
       </ul>
     </div>
@@ -31,6 +40,22 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue';
+
+const edit_title = ref('')
+const edit_text = ref('')
+
+const upLoad = () => {
+  // アップロードする
+  console.log(edit_title.value);
+  console.log(edit_text.value);
+}
+
+const resetInput = () => {
+  edit_title.value = ''
+  edit_text.value = ''
+}
+
 </script>
 
 <style scoped>

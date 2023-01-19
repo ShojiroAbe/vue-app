@@ -5,26 +5,28 @@
       <div class="row">
         <form class="col s12">
           <div class="row">
+            <!-- 各項目にバリデーションをかける -->
             <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">ユーザーネーム</label>
+              <input v-model="edit_username" type="text" class="validate">
+              <label for="username">ユーザーネーム</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
+              <input v-model="edit_email" type="email" class="validate">
               <label for="email">メールアドレス</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
+              <input v-model="edit_password" type="password" class="validate">
               <label for="password">パスワード</label>
             </div>
           </div>
           <ul class="buttons">
             <li>
-              <a class="waves-effect waves-light btn">新規作成</a>
+              <a @click="upLoad" class="waves-effect waves-light btn">
+                新規作成</a>
             </li>
           </ul>
         </form>
@@ -34,6 +36,19 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue';
+
+const edit_username = ref('')
+const edit_email = ref('')
+const edit_password = ref('')
+
+const upLoad = () => {
+  // アップロードする
+  console.log(edit_username.value);
+  console.log(edit_email.value);
+  console.log(edit_password.value);
+}
+
 </script>
 
 <style scoped>
