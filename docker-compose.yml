@@ -1,0 +1,21 @@
+version: '3.9' # docker-composeのバージョン
+services: 
+  frontend: # サービス名
+    build: # Dockerfileの設定
+      context: . # Dockerfileを置いているディレクトリ
+      dockerfile: ./frontend/Dockerfile # Dockerfileのファイル名
+    container_name: frontend
+    working_dir: /app # Dockerの中でのfrontendのことを指す
+    volumes: 
+    # データの永続化（ローカルの変更とDockerコンテナ内のfrontendを連携、同期しているという意味）
+      # ボリュームのマウント先の変更
+      - ./frontend:/app
+    ports:
+      - "5173:5173"
+
+  # backend: 
+  #   build:
+  #     context: ./backend
+  #     dockerfile: ./backend/
+
+# https://zenn.dev/ayuu/articles/84b482c37bea9a

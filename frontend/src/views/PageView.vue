@@ -5,12 +5,8 @@
         <div class="titele">タイトルが入ります</div>
         <div class="meta_data">
           <ul>
-            <li>
-              作成日：00/00/00/00
-            </li>
-            <li>
-              作成者：作成者が入ります
-            </li>
+            <li>作成日：00/00/00/00</li>
+            <li>作成者：作成者が入ります</li>
           </ul>
         </div>
       </div>
@@ -33,23 +29,22 @@
   </main>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .article {
-    width: 60%;
-    max-width: 1030px;
-    border: 0.1rem solid #9e9e9e;
-    border-radius: 2rem;
-    margin: 10rem auto;
-    padding: 2rem;
+  width: 60%;
+  max-width: 1030px;
+  border: 0.1rem solid #9e9e9e;
+  border-radius: 2rem;
+  margin: 10rem auto;
+  padding: 2rem;
 }
 
 .article_header {
-    padding-bottom: 1rem;
-    margin-bottom: 3rem;
-    border-bottom: 0.1rem solid #9e9e9e;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 0.1rem solid #9e9e9e;
 }
 
 .titele {

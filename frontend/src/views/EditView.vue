@@ -6,13 +6,13 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input v-model="edit_title" type="text" class="validate">
+              <input v-model="edit_title" type="text" class="validate" />
               <label for="title">タイトル</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input v-model="edit_text" type="text" class="validate">
+              <input v-model="edit_text" type="text" class="validate" />
               <label for="text">本文</label>
             </div>
           </div>
@@ -40,22 +40,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 
-const edit_title = ref('')
-const edit_text = ref('')
+const edit_title = ref("");
+const edit_text = ref("");
 
 const upLoad = () => {
   // アップロードする
   console.log(edit_title.value);
   console.log(edit_text.value);
-}
+};
 
 const resetInput = () => {
-  edit_title.value = ''
-  edit_text.value = ''
-}
-
+  edit_title.value = "";
+  edit_text.value = "";
+};
 </script>
 
 <style scoped>
