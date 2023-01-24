@@ -10,12 +10,28 @@ services:
     # データの永続化（ローカルの変更とDockerコンテナ内のfrontendを連携、同期しているという意味）
       # ボリュームのマウント先の変更
       - ./frontend:/app
+    # ホスト側のポート：コンテナのポート
     ports:
       - "5173:5173"
 
-  # backend: 
-  #   build:
-  #     context: ./backend
-  #     dockerfile: ./backend/
+  backend: 
+    build:
+      # Dockerfileを置いているディレクトリ
+      # ↑とあるけど「context: ./backend/bff」ではダメで
+      # could not find /Users/abeshoujirou/Desktop/git-clone-vue-app/backend/bff/backend/bff: stat /Users/abeshoujirou/Desktop/git-clone-vue-app/backend/bff/backend/bff: no such file or directory
+      # というのがcompose run時にエラーが出た、
+      # 「context: .」というのはどこの階層から見ているのか？「volumes: - ./backend/bff」の部分？
+      context: .
+      dockerfile: ./backend/bff/Dockerfile
+    container_name: backend
+    working_dir: /bff
+    volumes:
+      - ./backend/bff:/bff
+    # いまいちここのポートをそれぞれ設定する意図がわからない
+    # コンテナごとでポートを設定する必要性、もしくはいらないパターンもあるのか気になる
+    ports:
+      - "3000:3000"
+  # MySQLのimage(Dockerファイル)は作らず、ここから直接コンテナの作成を行う
+    
 
 # https://zenn.dev/ayuu/articles/84b482c37bea9a

@@ -1,6 +1,9 @@
 FROM node:18-alpine
 # ↓ローカルのfrontendというディレクトリをコンテナの中で「app」として見立て作る
 WORKDIR /app
+
+RUN [ "yarn", "install", "--rm" ]
+
 # プロジェクトのコピー
 # 左の「.」はコピー元（ここでいうローカルのDockerfileと同じ階層にあるディレクトリ・ファイルを指す）、右の「.」はコピー先（Dockerコンテナ内）
 COPY . .
