@@ -3,7 +3,8 @@ services:
   frontend: # サービス名
     build: # Dockerfileの設定
       context: . # Dockerfileを置いているディレクトリ
-      dockerfile: ./frontend/Dockerfile # Dockerfileのファイル名
+      dockerfile: ./frontend/Dockerfile
+       # Dockerfileのファイル名
     container_name: frontend
     working_dir: /app # Dockerの中でのfrontendのことを指す
     volumes: 
@@ -22,7 +23,7 @@ services:
       # というのがcompose run時にエラーが出た、
       # 「context: .」というのはどこの階層から見ているのか？「volumes: - ./backend/bff」の部分？
       context: .
-      dockerfile: ./backend/bff/Dockerfile
+      dockerfile: ./backend/bff/Dockerfile.dev
     container_name: backend
     working_dir: /bff
     volumes:
