@@ -23,7 +23,7 @@ services:
       # というのがcompose run時にエラーが出た、
       # 「context: .」というのはどこの階層から見ているのか？「volumes: - ./backend/bff」の部分？
       context: .
-      dockerfile: ./backend/bff/Dockerfile.dev
+      dockerfile: ./backend/bff/Dockerfile
     container_name: backend
     working_dir: /bff
     volumes:
