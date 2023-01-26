@@ -1,6 +1,6 @@
 import express from 'express'
 const app: express.Express = express()
-app.get("/", (req:express.Request, res:express.Response)=>{
+app.get("/", (_:express.Request, res:express.Response)=>{
     res.send("こんにちは");
 })
 app.listen(3000,()=>{

@@ -5,7 +5,12 @@
   ],
   "compilerOptions": {
     // コンパイルする際のオプションを書いていく。
-  "target": "es2016",
+  "target": "ES2022",
   "module": "commonjs",
+  "esModuleInterop": true,
+  "forceConsistentCasingInFileNames": true,
+  "strict": true,
+  "skipLibCheck": true,
+  "outDir": "./dist/",
   },
 }

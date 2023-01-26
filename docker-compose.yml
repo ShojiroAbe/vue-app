@@ -3,7 +3,8 @@ services:
   frontend: # サービス名
     build: # Dockerfileの設定
       context: . # Dockerfileを置いているディレクトリ
-      dockerfile: ./frontend/Dockerfile # Dockerfileのファイル名
+      dockerfile: ./frontend/Dockerfile
+       # Dockerfileのファイル名
     container_name: frontend
     working_dir: /app # Dockerの中でのfrontendのことを指す
     volumes: 
