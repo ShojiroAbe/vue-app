@@ -1,6 +1,6 @@
 FROM node:18-alpine
 # ↓ローカルのfrontendというディレクトリをコンテナの中で「app」として見立て作る
-WORKDIR /app
+WORKDIR /app/frontend
 
 RUN [ "yarn", "install", "--rm" ]
 

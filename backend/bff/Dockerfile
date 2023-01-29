@@ -1,14 +1,20 @@
+# Use an official Node.js runtime as the base image
 FROM node:18-alpine
 
-WORKDIR /bff
+# Set the working directory
+WORKDIR /app/backend
 
-# ここからじゃインストールできない？？（ローカルと同期）
-# RUN [ "npm", "i", "express" ]
-# RUN [ "npm", "i", "ts-node", "-D" ]
-# RUN [ "npm", "i", "typescript", "-D" ]
-# RUN [ "npm", "i", "@types/express", "-D" ]
-# RUN [ "npm", "i", "@types/node", "-D" ]
+RUN [ "yarn", "install", "--rm" ]
 
+# Copy the source code
 COPY . .
+RUN apk update
 
-CMD ["yarn", "start"]
+# Compile TypeScript
+# RUN npm run build
+
+# Expose the port
+# EXPOSE 3000
+
+# Start the app
+CMD [ "yarn", "start" ]
