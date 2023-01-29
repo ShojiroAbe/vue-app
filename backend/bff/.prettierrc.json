@@ -1,5 +1,5 @@
 {
   "quote-props": "consistent",
-  "quotes": "double",
+  "quotes": "single",
   "tabWidth": 2
 }
