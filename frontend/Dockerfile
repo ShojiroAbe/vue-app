@@ -2,12 +2,13 @@ FROM node:18-alpine
 # ↓ローカルのfrontendというディレクトリをコンテナの中で「app」として見立て作る
 WORKDIR /app/frontend
 
-RUN [ "yarn", "install", "--rm" ]
+RUN apk update
 
 # プロジェクトのコピー
 # 左の「.」はコピー元（ここでいうローカルのDockerfileと同じ階層にあるディレクトリ・ファイルを指す）、右の「.」はコピー先（Dockerコンテナ内）
 COPY . .
-RUN apk update
+RUN [ "yarn", "install" ]
+
 # Viteを実行
 # --hostをvite.configの方で設定
 CMD ["yarn", "dev"]

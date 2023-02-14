@@ -1,12 +1,19 @@
-const express = require('express');
+import express from "express";
+const userRouter = require("./router/user.ts");
+const cors = require("cors");
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.use(cors());
+
+app.get("/", (req: express.Request, res: express.Response) => {
+  res.send("Hello World!");
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+app.listen(port, () => console.log("サーバーが起動しました"));
+
+// ルーティング
+
+// User
+app.use("/user", userRouter);

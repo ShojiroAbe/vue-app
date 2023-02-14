@@ -1,11 +1,12 @@
 {
-  "include": [
-    // コンパイルするファイルを指定する。
-    "index.ts",
-  ],
   "compilerOptions": {
-    // コンパイルする際のオプションを書いていく。
-  "target": "es2016",
-  "module": "commonjs",
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true
   },
+  "include": ["backend/**/*.ts"]
 }

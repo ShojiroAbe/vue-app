@@ -4,7 +4,7 @@
     <router-link to="/page">
       <div class="cards">
         <!-- APIから取得できた数だけ返す -->
-        <div v-for="(n, index) in 12" key="index" class="item">
+        <div v-for="(n, index) in 12" :key="index" class="item">
           <div class="col s12 m6">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">

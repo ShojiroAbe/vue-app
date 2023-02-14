@@ -1,13 +1,13 @@
-version: '3.9' # docker-composeのバージョン
-services: 
+version: "3.9" # docker-composeのバージョン
+services:
   frontend: # サービス名
     build: # Dockerfileの設定
       context: . # Dockerfileを置いているディレクトリ
       dockerfile: ./frontend/Dockerfile # Dockerfileのファイル名
     container_name: frontend
     working_dir: /app/frontend # Dockerの中でのfrontendのことを指す
-    volumes: 
-    # データの永続化（ローカルの変更とDockerコンテナ内のfrontendを連携、同期しているという意味）
+    volumes:
+      # データの永続化（ローカルの変更とDockerコンテナ内のfrontendを連携、同期しているという意味）
       # ボリュームのマウント先の変更
       - ./frontend:/app/frontend
     # ホスト側のポート：コンテナのポート
@@ -15,30 +15,32 @@ services:
       - "5173:5173"
     # https://zenn.dev/ayuu/articles/84b482c37bea9a
 
-
-  backend: 
+  backend:
     build:
       context: .
-      dockerfile: ./backend/bff/Dockerfile
+      dockerfile: ./backend/bff/Docker/BFF/Dockerfile
     container_name: backend
-    working_dir: /app/bff
+    working_dir: /app/backend
+    restart: always
     volumes:
-      - ./backend/bff:/app/bff
+      - ./backend/bff:/app/backend
     ports:
       - "3000:3000"
-  
+    command: yarn start
+
   # MySQLのimage(Dockerファイル)は作らず、ここから直接コンテナの作成を行う
-  api:
+  db:
     image: mysql:8.0.28
     container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: demo
-      # MYSQL_USER:
-      # MYSQL_PASSWORD:
-      # MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: myblog
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
     volumes:
-      - ./backend/api/my.cnf:/mysql/my.cnf
+      - ./backend/bff/Docker/db/my.cnf:/mysql/my.cnf
     ports:
       - "3306:3306"
   # https://zenn.dev/ryo7/articles/create-mysql-on-docker

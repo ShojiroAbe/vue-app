@@ -4,11 +4,10 @@ FROM node:18-alpine
 # Set the working directory
 WORKDIR /app/backend
 
-RUN [ "yarn", "install", "--rm" ]
+RUN apk update
 
 # Copy the source code
 COPY . .
-RUN apk update
 
 # Compile TypeScript
 # RUN npm run build
