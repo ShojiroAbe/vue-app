@@ -19,6 +19,14 @@
         </li>
         <li>
           <router-link
+            to="/signup"
+            class="waves - effect waves - light btn - small"
+          >
+            SIGN UP
+          </router-link>
+        </li>
+        <li>
+          <router-link
             to="/login"
             class="waves - effect waves - light btn - small"
           >
@@ -27,10 +35,10 @@
         </li>
         <li>
           <router-link
-            to="/signup"
+            to="/mypage"
             class="waves - effect waves - light btn - small"
           >
-            SIGN UP
+            MY PAGE
           </router-link>
         </li>
       </ul>

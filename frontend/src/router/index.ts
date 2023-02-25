@@ -4,9 +4,10 @@ import LogInView from "../views/LoginView.vue";
 import SignUpView from "../views/SignUpView.vue";
 import EditView from "../views/EditView.vue";
 import PageView from "../views/PageView.vue";
+import MyPage from "../views/MyPageView.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: "/",
@@ -33,6 +34,12 @@ const router = createRouter({
       path: "/page",
       name: "page",
       component: PageView,
+    },
+    {
+      // クエリパラメータ取得し該当のMY PAGEに飛ばす予定
+      path: "/mypage/:id",
+      name: "mypage",
+      component: MyPage,
     },
   ],
 });
